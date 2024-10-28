@@ -34,8 +34,8 @@ $result = $conn->query($sql);
                 echo "<td>" . $row["name"] . "</td>";
                 echo "<td>" . $row["position"] . "</td>";
                 echo "<td>" . $row["salary"] . "</td>";
-                echo "<td><a href='delete.php'?id=" . $row['id'] . " '>Delete</a></td>";
-                echo "<td><a href='edit.php'?id=" . $row['id'] . " '>Edit</a></td>";
+                echo "<td><a href='delete.php?id=" . $row['id'] . " '>Delete</a></td>";
+                echo "<td><a href='edit.php?id=" . $row['id'] . " '>Edit</a></td>";
                 echo "</tr>";
             }
         } else {

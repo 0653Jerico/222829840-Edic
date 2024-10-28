@@ -2,6 +2,9 @@
 
     include 'db.php';
 
+    $id = "";
+    $name = $position = $salary = "";
+
     if (isset($_GET['id'])){
         $id = $_GET['id'];
 
@@ -25,7 +28,7 @@
         $id = $_POST['id'];
 
         if (!empty($name) && !empty($position) && !empty($salary)){
-            $sql = "UPDATE employees WHERE id=$id SET name='$name', position='$position', salary='$salary';";
+            $sql = "UPDATE employees SET name='$name', position='$position', salary='$salary' WHERE id=$id;";
 
             if ($conn->query($sql)===TRUE){
                 echo "Employee updated successfully!";
@@ -50,15 +53,15 @@
     <h3>Update Employees</h3>
     
     <form action="edit.php" method="post">
-        <input type="hidden" name="id" value="<?php echo $id; ?>">
-        <label for="name">Enter the name:</label><br>
-        <input type="text" name="name" id="name" value="<?php echo $name; ?>"><br><br>
+        <input type="hidden" name="id" value="<?php echo htmlspecialchars($id); ?>">
+        Enter the name:
+        <input type="text" name="name" value="<?php echo $name; ?>"><br><br>
 
-        <label for="position">Enter the position:</label><br>
-        <input type="text" name="position" id="position" value="<?php echo $position; ?>"><br><br>
+        Enter the position:
+        <input type="text" name="position" value="<?php echo $position; ?>"><br><br>
 
-        <label for="salary">Enter the salary:</label><br>
-        <input type="number" name="salary" id="salary" value="<?php echo $salary; ?>"><br><br>
+        Enter the salary:
+        <input type="number" name="salary" value="<?php echo $salary; ?>"><br><br>
 
         <input type="submit" value="Update Employee">
     </form>
