@@ -1,8 +1,8 @@
 <?php
 
     $servername = "localhost";
-    $username = "root";
-    $pwd = "";
+    $username = "jekai";
+    $pwd = "Jekai@0653560";
     $dbname = "employee";
 
 
